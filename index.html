@@ -316,9 +316,9 @@
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="font-display text-4xl font-bold mb-4">Ready to Deploy?</h2>
             <p class="text-muted text-lg mb-8">Get your OpenClaw instance running in under 60 seconds.</p>
-            <form class="space-y-4">
-                <input type="email" placeholder="Your email" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none">
-                <textarea placeholder="Tell us about your needs" rows="3" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none"></textarea>
+            <form action="https://formspree.io/f/mjgeqwka" method="POST" class="space-y-4">
+                <input type="email" name="email" placeholder="Your email" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none" required>
+                <textarea name="message" placeholder="Tell us about your needs" rows="3" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none"></textarea>
                 <button type="submit" class="w-full py-4 bg-gradient-to-r from-accent to-purple-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition glow">
                     Get Started
                 </button>
