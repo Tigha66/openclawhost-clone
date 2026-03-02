@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Hosting | Deploy in 60 Seconds</title>
+    <meta name="description" content="Managed hosting for OpenClaw (Clawdbot/Moltbot). No VPS, No Docker, No SSH. Deploy your personal AI assistant in 60 seconds.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0a0a0f',
+                        secondary: '#12121a',
+                        accent: '#6366f1',
+                        'accent-hover': '#818cf8',
+                        muted: '#6b7280',
+                        border: '#1f1f2e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        body { background: #0a0a0f; color: #e5e5e5; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow { box-shadow: 0 0 60px rgba(99, 102, 241, 0.3); }
+        .card-glow:hover { box-shadow: 0 0 40px rgba(99, 102, 241, 0.2); }
+        .hero-gradient { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 50%, #0a0a0f 100%); }
+        .grid-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .pulse-ring { animation: pulseRing 2s ease-out infinite; }
+        @keyframes pulseRing { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-primary/80 border-b border-border">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center">
+                    <span class="text-xl">🦞</span>
+                </div>
+                <span class="font-display font-bold text-xl">OpenClaw<span class="text-accent">Host</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" class="text-muted hover:text-white transition">Features</a>
+                <a href="#how-it-works" class="text-muted hover:text-white transition">How It Works</a>
+                <a href="#pricing" class="text-muted hover:text-white transition">Pricing</a>
+                <a href="#contact" class="px-5 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-full font-semibold transition">Deploy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-gradient grid-pattern min-h-screen flex items-center pt-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-8">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                Deploy OpenClaw in 60 Seconds
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Run OpenClaw.<br>
+                <span class="gradient-text">Skip the Setup.</span>
+            </h1>
+            
+            <p class="text-xl text-muted max-w-2xl mx-auto mb-10">
+                Managed hosting for OpenClaw, Clawdbot & Moltbot. No VPS. No Docker. No SSH. 
+                Just your personal AI assistant, ready to go.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-accent to-purple-500 text-white rounded-full font-bold text-lg hover:scale-105 transition glow">
+                    Deploy OpenClaw
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 border border-border text-white rounded-full font-semibold text-lg hover:bg-white/5 transition">
+                    See How It Works
+                </a>
+            </div>
+            
+            <!-- Platforms -->
+            <div class="flex items-center justify-center gap-8 mb-8">
+                <span class="text-muted text-sm">One-click integration with</span>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-[#25D366] flex items-center justify-center text-white font-bold">WA</div>
+                    <div class="w-10 h-10 rounded-lg bg-[#0088cc] flex items-center justify-center text-white font-bold">TG</div>
+                    <div class="w-10 h-10 rounded-lg bg-[#5865F2] flex items-center justify-center text-white font-bold">DC</div>
+                    <div class="w-10 h-10 rounded-lg bg-[#4A154B] flex items-center justify-center text-white font-bold">SL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">3 Simple Steps</h2>
+                <p class="text-muted text-lg">No DevOps. No terminal. No headaches.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-primary rounded-3xl p-8 border border-border card-glow transition">
+                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                        <span class="text-3xl font-display font-bold text-accent">01</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">Add Your API Key</h3>
+                    <p class="text-muted">Sign up and paste your Anthropic or OpenAI key. That's the only configuration you'll ever need.</p>
+                    
+                    <div class="mt-6 p-4 bg-secondary rounded-xl border border-border">
+                        <div class="text-xs text-muted mb-2">Provider</div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Anthropic</span>
+                            <span class="px-3 py-1 bg-secondary border border-border rounded-full text-sm">OpenAI</span>
+                        </div>
+                        <div class="text-xs text-muted">API Key</div>
+                        <div class="text-sm text-white font-mono">sk-ant-api03-••••••••••••</div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-primary rounded-3xl p-8 border border-border card-glow transition">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6">
+                        <span class="text-3xl font-display font-bold text-purple-400">02</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">Connect Platforms</h3>
+                    <p class="text-muted">Link WhatsApp, Telegram, Discord, or Slack with a single click. No SSH, no config files.</p>
+                    
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                            <span class="text-2xl">💬</span>
+                            <span>WhatsApp</span>
+                            <span class="ml-auto text-green-400 text-sm">Scan QR Code</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                            <span class="text-2xl">✈️</span>
+                            <span>Telegram</span>
+                            <span class="ml-auto text-green-400 text-sm">Paste Token</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                            <span class="text-2xl">🎮</span>
+                            <span>Discord</span>
+                            <span class="ml-auto text-green-400 text-sm">OAuth</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-primary rounded-3xl p-8 border border-border card-glow transition">
+                    <div class="w-16 h-16 rounded-2xl bg-pink-500/20 flex items-center justify-center mb-6">
+                        <span class="text-3xl font-display font-bold text-pink-400">03</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">Start Chatting</h3>
+                    <p class="text-muted">Your OpenClaw is live and ready. Message it from any connected platform—it just works.</p>
+                    
+                    <div class="mt-6 p-4 bg-secondary rounded-xl border border-border">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl">🦞</span>
+                            <div>
+                                <div class="text-green-400 text-sm font-medium">● Online</div>
+                                <div class="text-white text-sm">OpenClaw</div>
+                            </div>
+                        </div>
+                        <div class="text-sm text-muted italic">"Summarize my unread emails"</div>
+                        <div class="text-sm text-white mt-2">"You have 8 unread emails. 2 are urgent..."</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-accent font-semibold">Total setup time: Under 60 seconds</p>
+                <p class="text-muted text-sm mt-1">Zero configuration required</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-primary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Fully Managed Infrastructure</h2>
+                <p class="text-muted text-lg max-w-2xl mx-auto">Everything OpenClaw Needs. Nothing You Have to Configure. We handle the infrastructure so you can focus on using OpenClaw, not maintaining it.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">⚡</div>
+                    <h3 class="font-bold text-lg mb-2">Pre-Configured</h3>
+                    <p class="text-muted text-sm">Node.js 22, gateway, workspace, browser automation—all set up and ready.</p>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">🔑</div>
+                    <h3 class="font-bold text-lg mb-2">Your API Keys</h3>
+                    <p class="text-muted text-sm">Bring your Anthropic or OpenAI key. Your OpenClaw runs fully isolated—we never see your conversations.</p>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">🔗</div>
+                    <h3 class="font-bold text-lg mb-2">One-Click Connections</h3>
+                    <p class="text-muted text-sm">Connect WhatsApp, Telegram, Discord, or Slack from your dashboard. No terminal commands.</p>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">🎛️</div>
+                    <h3 class="font-bold text-lg mb-2">Simple Dashboard</h3>
+                    <p class="text-muted text-sm">Manage your instance, connect platforms, and update settings through an easy-to-use web dashboard.</p>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">🌐</div>
+                    <h3 class="font-bold text-lg mb-2">Web & Computer Use</h3>
+                    <p class="text-muted text-sm">Browser automation baked in. Your OpenClaw can browse sites, fill forms, and fetch live data out of the box.</p>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-6 border border-border">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 text-2xl">🖥️</div>
+                    <h3 class="font-bold text-lg mb-2">Your Own VPS</h3>
+                    <p class="text-muted text-sm">Your own isolated instance—not a shared container. Consistent performance with full process isolation.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid md:grid-cols-4 gap-4 text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-display font-bold text-accent">99.9%</div>
+                    <div class="text-muted text-sm">Uptime SLA</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-display font-bold text-accent">&lt;1min</div>
+                    <div class="text-muted text-sm">Deploy Time</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-display font-bold text-accent">24/7</div>
+                    <div class="text-muted text-sm">Monitoring</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-display font-bold text-accent">0</div>
+                    <div class="text-muted text-sm">Config Required</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="py-24 bg-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-4">See the Difference</h2>
+                <p class="text-muted">Why fight with the terminal when you don't have to?</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Self-Hosted -->
+                <div class="bg-primary rounded-3xl p-8 border border-border">
+                    <h3 class="font-display text-2xl font-bold mb-6">Self-Hosted</h3>
+                    <p class="text-red-400 font-semibold mb-4">The hard way</p>
+                    
+                    <div class="font-mono text-sm bg-black/50 p-4 rounded-xl text-muted overflow-x-auto">
+                        <div>$ ssh root@your-vps</div>
+                        <div>$ nano /etc/openclaw/.env</div>
+                        <div>$ WHATSAPP_ENABLED=true</div>
+                        <div>$ WHATSAPP_SESSION_PATH=./sessions</div>
+                        <div>$ npx openclaw channel add whatsapp</div>
+                        <div>$ systemctl restart openclaw</div>
+                        <div class="text-red-400"># Error: session timeout...</div>
+                        <div>$ tail -f /var/log/openclaw.log</div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <span class="text-2xl font-display font-bold">30-60 minutes</span>
+                        <p class="text-muted text-sm">Time spent</p>
+                    </div>
+                </div>
+                
+                <!-- Managed -->
+                <div class="bg-primary rounded-3xl p-8 border-2 border-accent glow">
+                    <h3 class="font-display text-2xl font-bold mb-6">OpenClaw<span class="text-accent">Host</span></h3>
+                    <p class="text-green-400 font-semibold mb-4">The easy way</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-secondary rounded-xl">
+                            <span class="text-green-400 font-bold">1</span>
+                            <span>Click "Connect WhatsApp"</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-secondary rounded-xl">
+                            <span class="text-green-400 font-bold">2</span>
+                            <span>Scan QR with your phone</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-green-500/10 border border-green-500/30 rounded-xl">
+                            <span class="text-green-400 font-bold">3</span>
+                            <span class="text-green-400">Done! You're connected</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <span class="text-2xl font-display font-bold text-accent">30 seconds</span>
+                        <p class="text-muted text-sm">Time spent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-primary">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Simple Pricing</h2>
+                <p class="text-muted text-lg">One price. Everything included. No surprises.</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-secondary to-primary rounded-3xl p-8 md:p-12 border border-accent/30 glow max-w-lg mx-auto">
+                <div class="text-center mb-8">
+                    <div class="text-sm text-muted mb-2">Starting at</div>
+                    <div class="flex items-baseline justify-center gap-1">
+                        <span class="text-6xl font-display font-bold">$29</span>
+                        <span class="text-muted">/month</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>Ready in 60 seconds</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>Your own OpenClaw instance</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>WhatsApp, Telegram, Discord, Slack</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>Automatic updates & restarts</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>Web browsing & computer use</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>24/7 uptime monitoring</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-400">✓</span>
+                        <span>Your API keys, fully isolated*</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="block w-full py-4 bg-gradient-to-r from-accent to-purple-500 text-white rounded-full font-bold text-lg text-center hover:scale-105 transition glow">
+                    Deploy OpenClaw
+                </a>
+                
+                <p class="text-center text-muted text-sm mt-4">* AI provider API keys required (not included)</p>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-accent font-semibold">3-Day Money-Back Guarantee</p>
+                    <p class="text-muted text-sm">Cancel anytime, no questions asked</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-24 bg-secondary">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold mb-4">Ready to Deploy?</h2>
+            <p class="text-muted text-lg mb-8">Get your OpenClaw instance running in under 60 seconds.</p>
+            
+            <form class="space-y-4">
+                <input type="email" placeholder="Your email" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none transition">
+                <textarea placeholder="Tell us about your needs (optional)" rows="3" class="w-full px-6 py-4 bg-primary border border-border rounded-xl text-white placeholder-muted focus:border-accent focus:outline-none transition"></textarea>
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-accent to-purple-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition glow">
+                    Get Started
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-border">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center">
+                        <span class="text-sm">🦞</span>
+                    </div>
+                    <span class="font-display font-bold">OpenClaw<span class="text-accent">Host</span></span>
+                </div>
+                
+                <div class="flex items-center gap-6 text-muted text-sm">
+                    <a href="#" class="hover:text-white transition">Privacy</a>
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                    <a href="#" class="hover:text-white transition">Refund Policy</a>
+                </div>
+                
+                <p class="text-muted text-sm">© 2026 OpenClawHost. Not affiliated with OpenClaw, Moltbot, or Anthropic.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
