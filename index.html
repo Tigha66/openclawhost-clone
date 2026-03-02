@@ -345,5 +345,32 @@
             </div>
         </div>
     </footer>
+<script>
+        document.querySelector('form[action*="formspree"]').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.innerHTML = '<div class="text-center py-8"><div class="text-5xl mb-4">✅</div><h3 class="text-xl font-bold text-white mb-2">Message Sent!</h3><p class="text-muted">We\'ll get back to you soon.</p></div>';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                button.textContent = originalText;
+                button.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
